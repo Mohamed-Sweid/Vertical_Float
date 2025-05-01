@@ -1,0 +1,96 @@
+:root {
+  --bg-color: #f8f9fa;
+  --text-color: #2c3e50;
+  --chart-bg: #ffffff;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 20px;
+}
+
+.dashboard {
+  max-width: 1800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  grid-auto-rows: minmax(400px, auto);
+}
+
+.chart-card {
+  background: var(--chart-bg);
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+  height: 100%;
+  position: relative;
+}
+
+.chart-card:hover {
+  transform: translateY(-5px);
+}
+
+.chart-title {
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: #34495e;
+}
+
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 300px;
+  max-height: 400px;
+}
+/* Zoom/Pan Controls */
+.chart-toolbar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.chart-toolbar button {
+  background: none;
+  border: none;
+  padding: 5px;
+  margin: 0 2px;
+  cursor: pointer;
+  color: #666;
+}
+
+.chart-toolbar button:hover {
+  color: #333;
+}
+
+.chart-toolbar button.active {
+  color: #2196F3;
+}
+.chart-card canvas {
+  cursor: crosshair;
+}
+
+.chart-card canvas.pan-mode {
+  cursor: grab;
+}
+
+.chart-card canvas.pan-mode:active {
+  cursor: grabbing;
+}
+.chart-card canvas {
+  cursor: grab;
+}
+
+.chart-card canvas.pan-active {
+  cursor: grabbing;
+}
